@@ -1,0 +1,28 @@
+# config.yml
+
+data:
+  cease: "data/cease_data.csv"
+  customer_info: "data/customer_info.parquet"
+  calls: "data/call_information.csv"
+  usage: "data/usage_data.parquet"
+
+output:
+  features: "data/features.parquet"
+  predictions: "models/churn_predictions.csv"
+  high_risk: "models/high_risk_customers.csv"
+  model: "models/xgboost_churn_model.pkl"
+  encoders: "models/label_encoders.pkl"
+  feature_importance: "models/feature_importance.csv"
+
+model:
+  test_size: 0.2
+  random_state: 42
+  high_risk_threshold: 0.7
+  top_n_high_risk: 100
+
+mlflow:
+  experiment_name: "telecom_churn"
+
+spark:
+  app_name: "Churn-Pipeline"
+  master: "local[*]"
